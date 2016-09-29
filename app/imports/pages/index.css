@@ -1,0 +1,131 @@
+header{
+    text-align: center;
+}
+
+.header{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 48px;
+    color: white;
+}
+
+.bg-main {
+    background: #c7254e;
+    /*background: #c7c7c7;*/
+}
+
+.color-main {
+    color: #c7254e;
+}
+.color-highlight {
+    color: #d7355e;
+}
+
+a.color-main:hover {
+    color: #d7355e;
+    text-decoration: none;
+}
+
+a.color-main:active {
+    color: #d7355e;
+    text-decoration: none;
+}
+
+a.color-main:visited {
+    color: #d7355e;
+    text-decoration: none;
+}
+
+.chapter {
+    font-family: "Trebuchet MS", sans-serif;
+    padding: 5px 44px;
+}
+
+.schedule-on-day {
+    margin-left: 2.5%;
+    width: 95%;
+    box-shadow: #ddd 0 0 35px;
+    margin-bottom: 35px;
+}
+.schedule-day-name{
+    margin-left: 5%;
+    font-size: large;
+    font-family: "Trebuchet MS", sans-serif;
+    color: #6c6c6c;
+
+}
+.schedule-time-column{
+    font-size: large;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.schedule-subject-column{
+    font-weight: 700;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: larger;
+    color: #518abe;
+}
+
+.schedule-teacher-column{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: smaller;
+    color: #bebebe;
+}
+
+.schedule-on-day>tr>td{
+    padding: 5px;
+    border-bottom: dotted 1px lightgray;
+}
+.schedule-on-day>tr>td>p{
+    padding: 0;
+    margin: 0;
+}
+
+.logo-text {
+    padding: 10px 0 20px 0;
+    padding-left: 20px;
+    font: 22px "Trebuchet MS";
+    color: white;
+}
+
+.logo-bookmark {
+    width: 56px;
+    height: 110px;
+    left: -30px;
+    top: -20px;
+    position: relative;
+    background: #b2db00;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: .1s;
+}
+.logo-bookmark:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid #fff;
+    border-left: 28px solid transparent;
+    border-right: 28px solid transparent;
+}
+.logo-bookmark:hover{
+    /*background: #92db00;*/
+    top: -10px;
+}
+.btn-logout{
+    width: 90%;
+    height: 48px;
+    border-width: 0;
+    border-radius: 0;
+    font: 14px "Trebuchet MS";
+}
+
+.btn-logout:hover{
+    color: white;
+    background: #d7355e;
+}

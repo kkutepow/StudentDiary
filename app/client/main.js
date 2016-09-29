@@ -1,1 +1,1 @@
-import "../import/startup/client";
+import "../imports/startup/client";
