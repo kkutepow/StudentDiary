@@ -3,111 +3,62 @@
     <div class="row" style="margin: 25px;">
         <form>
             <div class="form-group">
-                <textarea placeholder="Предложите новость..." class="form-control" style="resize: none; padding: 10px; border-bottom-right-radius: 0;"></textarea>
+                <textarea id="newRecordBody" placeholder="Предложите новость..." class="form-control" style="resize: none; padding: 10px; border-bottom-right-radius: 0;"></textarea>
 
                 <button class="btn btn-primary btn-sm right"
-                        style="border-top-right-radius: 0; border-top-left-radius: 0;">Рассказать</button>
+                        style="border-top-right-radius: 0; border-top-left-radius: 0;"
+                        data-role="AddRecord">Рассказать
+                </button>
 
-                    <button class="btn color-picker" style="background-color: #e0f0ff" ></button>
-                    <button class="btn color-picker" style="background-color: #e0ffe0" ></button>
-                    <button class="btn color-picker" style="background-color: #ffffff" ></button>
-                    <button class="btn color-picker" style="background-color: #ffffe0" ></button>
-                    <button class="btn color-picker" style="background-color: #ffe0e0" ></button>
+                {{#each color in colors}}
+                    <button class="btn color-picker {{#if isSelectedColor color}}color-picker-active{{/if}}" style="background-color: {{color}}" data-color="{{color}}"></button>
+                {{/each}}
             </div>
         </form>
     </div>
 
-    <div class="task-item" style="background-color: #fff" data-role="task" data-value="task_id">
-        <div class="task-description">
-            <strong>Собрание на кафедре.</strong>
-            <br>Завтра, 13 октября состоится собрание в 3 часа на на шей кафедре
-            <br>Это важно, так что прийти нужно всем. Это не займет много времени.
-        </div>
-        <div class="task-deadline">
-            <div class="task-deadline-label">10 просмотров</div>
-            <div class="task-deadline-date"></div>
-        </div>
-        <div class="task-author">
-            <div class="task-author-photo"></div>
-            <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
+    {{#each record in news}}
+        <div class="task-item" style="background-color: {{record.bg_color}}" data-item-id="{{record._id}}">
+            <!-- TODO: hide remove button if user is not owner of record -->
+            <a class="remove-record-btn" data-role="RemoveRecord" data-target="{{record._id}}" aria-label="Left Align">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+            <div class="task-description">{{{record.message}}}</div>
+            <div class="task-deadline">
+                <div class="task-deadline-label">{{record.watched_count_label}}</div>
+                <div class="task-deadline-date"></div>
+            </div>
+            <div class="task-author">
+                <div class="task-author-photo"></div>
+                <div class="task-author-name">{{record.created_date}}<br>{{record.creator_name}}</div>
+                <div style="clear: both"></div>
+            </div>
             <div style="clear: both"></div>
         </div>
-        <div style="clear: both"></div>
-    </div>
-    <div class="task-commentaries">
-        <div class="task-comment-message">
-            Вы это серьезно?
-        </div>
-        <div class="task-deadline">
-            <div class="task-deadline-label">10 просмотров</div>
-            <div class="task-deadline-date"></div>
-        </div>
-        <div class="task-author">
-            <div class="task-author-photo"></div>
-            <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
-            <div style="clear: both"></div>
-        </div>
-        <div style="clear: both"></div>
-    </div>
-    <div class="task-commentaries" style="background-color: #f8f8f8">
-        <div class="task-comment-message">
-            Я не смогу
-        </div>
-        <div class="task-deadline">
-            <div class="task-deadline-label">10 просмотров</div>
-            <div class="task-deadline-date"></div>
-        </div>
-        <div class="task-author">
-            <div class="task-author-photo"></div>
-            <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
-            <div style="clear: both"></div>
-        </div>
-        <div style="clear: both"></div>
-    </div>
-    {{#if visible}}
-        <div class="task-new-comment">
-            <textarea placeholder="Ваш комментарий" class="form-control" style="resize: none;border-bottom-right-radius: 0;"></textarea>
-            <button class="btn btn-sm right"
-                    style="border-top-right-radius: 0; border-top-left-radius: 0;">Комментировать</button>
-            <div style="clear: both"></div>
-        </div>
-    {{/if}}
-    <div class="task-item" style="background-color: #e0f0ff" data-role="task" data-value="task_id">
-        <div class="task-description">
-            <strong>Собрание на кафедре.</strong>
-            <br>Завтра, 13 октября состоится собрание в 3 часа на на шей кафедре
-            <br>Это важно, так что прийти нужно всем. Это не займет много времени.
-        </div>
+        {{#each comment in record.comments}}
+            <div class="task-commentaries">
+                <div class="task-comment-message">
+                    {{{comment.message}}}
+                </div>
+                <div class="task-author">
+                    <div class="task-author-photo"></div>
+                    <div class="task-author-name">{{comment.created_date}}<br>{{comment.creator_name}}</div>
+                    <div style="clear: both"></div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+        {{/each}}
+        {{#if isSelectedItem record._id }}
+            <div class="task-new-comment">
+                <textarea id="newCommentBody" placeholder="Ваш комментарий" class="form-control" style="resize: none;border-bottom-right-radius: 0;"></textarea>
+                <button class="btn btn-sm right"
+                        style="border-top-right-radius: 0; border-top-left-radius: 0;"
+                        data-role="AddComment"
+                        data-target="{{record._id}}">Комментировать
+                </button>
+                <div style="clear: both"></div>
+            </div>
+        {{/if}}
+    {{/each}}
 
-
-        <div class="task-deadline">
-            <div class="task-deadline-label">10 просмотров</div>
-            <div class="task-deadline-date"></div>
-        </div>
-        <div class="task-author">
-            <div class="task-author-photo"></div>
-            <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
-            <div style="clear: both"></div>
-        </div>
-        <div style="clear: both"></div>
-    </div>
-    <div class="task-item" data-role="task" data-value="task_id">
-        <div class="task-description">
-            <strong>Собрание на кафедре.</strong>
-            <br>Завтра, 13 октября состоится собрание в 3 часа на на шей кафедре
-            <br>Это важно, так что прийти нужно всем. Это не займет много времени.
-        </div>
-
-
-        <div class="task-deadline">
-            <div class="task-deadline-label">10 просмотров</div>
-            <div class="task-deadline-date"></div>
-        </div>
-        <div class="task-author">
-            <div class="task-author-photo"></div>
-            <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
-            <div style="clear: both"></div>
-        </div>
-        <div style="clear: both"></div>
-    </div>
 </template>

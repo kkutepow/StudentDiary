@@ -85,38 +85,6 @@ a.color-main:visited {
     margin: 0;
 }
 
-.logo-text {
-    padding: 10px 0 20px 0;
-    padding-left: 20px;
-    font: 22px "Trebuchet MS";
-    color: white;
-}
-
-.logo-bookmark {
-    width: 56px;
-    height: 110px;
-    left: -30px;
-    top: -20px;
-    position: relative;
-    background: #b2db00;
-    color: white;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-align: center;
-    text-transform: uppercase;
-    transition: .1s;
-}
-.logo-bookmark:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-bottom: 20px solid #fff;
-    border-left: 28px solid transparent;
-    border-right: 28px solid transparent;
-}
 .logo-bookmark:hover{
     /*background: #92db00;*/
     top: -10px;
@@ -235,6 +203,20 @@ a.color-main:visited {
     border-radius: 0 !important;
 }
 
+.color-picker-active{
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray !important;
+}
+
+.remove-record-btn{
+    position:relative;
+    float: right;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    color: #bbb !important;
+}
 
 
 
