@@ -2,6 +2,9 @@ header{
     text-align: center;
 }
 
+.right {
+    float: right;
+}
 .header{
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -46,6 +49,7 @@ a.color-main:visited {
     width: 95%;
     box-shadow: #ddd 0 0 35px;
     margin-bottom: 35px;
+    border-radius: 5px;
 }
 .schedule-day-name{
     margin-left: 5%;
@@ -129,3 +133,125 @@ a.color-main:visited {
     color: white;
     background: #d7355e;
 }
+
+
+/* taskboard */
+.subject-item{
+    padding: 25px 0 0 55px;
+}
+
+.task-count-label{
+    color: #cecece;
+}
+
+.task-item{
+    margin: 25px;
+    padding: 20px 20px 10px 20px;
+    background-color: #ffffe0;
+    box-shadow: #ddd 0 0 35px;
+}
+
+.task-header {
+    padding: 5px 20px;
+}
+
+.task-name{
+    font-size: large;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 400;
+    float:left;
+}
+.task-subject{
+    padding: 5px 15px 0 0;
+    margin-left: 15px;
+    font-size: small;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 700;
+    float:left;
+    color: #bbb;
+}
+
+.task-description{
+    font-style: italic;
+    margin: 20px;
+}
+
+.task-deadline{
+    float:left;
+    font-family: "Trebuchet MS", sans-serif;
+    padding-top:20px;
+}
+
+.task-deadline-label{
+    color: #bbb;
+    font-size: small;
+    float:left;
+}
+
+.task-deadline-date{
+    color: #28f;
+    font-size: small;
+    font-weight: 700;
+    float:left;
+    margin-left: 5px;
+}
+
+.task-author{
+    float:right;
+}
+
+.task-author-name{
+    float:right;
+    color: #bbb;
+    font-size: small;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.task-author-photo{
+    float:right;
+    width: 33px;
+    height: 33px;
+    background: #ddd;
+}
+
+/* news */
+.color-picker{
+    width: 20px;
+    height: 20px;
+    float:right;
+    border-radius: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

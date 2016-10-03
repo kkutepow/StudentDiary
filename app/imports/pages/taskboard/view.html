@@ -1,3 +1,102 @@
 <template name="taskboard">
-    <div class="row"></div>
+    <nav class="navbar">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Все</a></li>
+                <li><a href="#">Только невыполненные</a></li>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Поиск">
+                    </div>
+                </form>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" style=" border-right: 1px solid #777">
+                <div class="subject-item" data-role="subject" data-value="all">
+                    <a href="#">Все предметы</a>
+                    <span class="task-count-label right"><strong>2</strong></span>
+                </div>
+                <div class="subject-item" data-role="subject" data-value="all">
+                    <a href="#">Психология</a>
+                    <span class="task-count-label right"><strong>2</strong></span>
+                </div>
+                <div class="subject-item" data-role="subject" data-value="all">
+                    <a href="#">История</a>
+                    <span class="task-count-label right"><strong>2</strong></span>
+                </div>
+                <div class="subject-item" data-role="subject" data-value="all">
+                    <a href="#">Педиатрия</a>
+                    <span class="task-count-label right"><strong>2</strong></span>
+                </div>
+                <div class="subject-item" data-role="subject" data-value="all"></div>
+            </div>
+            <div class="col-md-9" style="">
+                <div class="task-item" data-role="task" data-value="task_id">
+                    <div class="task-header">
+                        <div class="task-name">Доклад</div>
+                        <div class="task-subject">(Психология)</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="task-description">Подготовить доклад на свободную тему.<br>Время выступления ~10 мин.</div>
+                    <div class="task-deadline">
+                        <div class="task-deadline-label">Срок сдачи:</div>
+                        <div class="task-deadline-date">в течение семестра</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="task-author">
+                        <div class="task-author-photo"></div>
+                        <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+
+
+                <div class="task-item" style="background-color: #ffe0ff" data-role="task" data-value="task_id">
+                    <div class="task-header">
+                        <div class="task-name">Контрольная за модуль</div>
+                        <div class="task-subject">(Психология)</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="task-description">Подготовить доклад на свободную тему.<br>Время выступления ~10 мин.</div>
+                    <div class="task-deadline">
+                        <div class="task-deadline-label">Срок сдачи:</div>
+                        <div class="task-deadline-date">23 октября</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="task-author">
+                        <div class="task-author-photo"></div>
+                        <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+
+                <div class="task-item" style="background-color: #e0ffff" data-role="task" data-value="task_id">
+                    <div class="task-header">
+                        <div class="task-name">Контрольная за модуль</div>
+                        <div class="task-subject">(Психология)</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="task-description">Подготовить доклад на свободную тему.<br>Время выступления ~10 мин.</div>
+                    <div class="task-deadline">
+                        <div class="task-deadline-label">Срок сдачи:</div>
+                        <div class="task-deadline-date">10 ноября</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div class="task-author">
+                        <div class="task-author-photo"></div>
+                        <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </template>
