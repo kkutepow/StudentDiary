@@ -23,8 +23,6 @@
             <br>Завтра, 13 октября состоится собрание в 3 часа на на шей кафедре
             <br>Это важно, так что прийти нужно всем. Это не займет много времени.
         </div>
-
-
         <div class="task-deadline">
             <div class="task-deadline-label">10 просмотров</div>
             <div class="task-deadline-date"></div>
@@ -36,6 +34,44 @@
         </div>
         <div style="clear: both"></div>
     </div>
+    <div class="task-commentaries">
+        <div class="task-comment-message">
+            Вы это серьезно?
+        </div>
+        <div class="task-deadline">
+            <div class="task-deadline-label">10 просмотров</div>
+            <div class="task-deadline-date"></div>
+        </div>
+        <div class="task-author">
+            <div class="task-author-photo"></div>
+            <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
+            <div style="clear: both"></div>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    <div class="task-commentaries" style="background-color: #f8f8f8">
+        <div class="task-comment-message">
+            Я не смогу
+        </div>
+        <div class="task-deadline">
+            <div class="task-deadline-label">10 просмотров</div>
+            <div class="task-deadline-date"></div>
+        </div>
+        <div class="task-author">
+            <div class="task-author-photo"></div>
+            <div class="task-author-name">12.10.2016<br>Крыжановская Татьяна</div>
+            <div style="clear: both"></div>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    {{#if visible}}
+        <div class="task-new-comment">
+            <textarea placeholder="Ваш комментарий" class="form-control" style="resize: none;border-bottom-right-radius: 0;"></textarea>
+            <button class="btn btn-sm right"
+                    style="border-top-right-radius: 0; border-top-left-radius: 0;">Комментировать</button>
+            <div style="clear: both"></div>
+        </div>
+    {{/if}}
     <div class="task-item" style="background-color: #e0f0ff" data-role="task" data-value="task_id">
         <div class="task-description">
             <strong>Собрание на кафедре.</strong>
