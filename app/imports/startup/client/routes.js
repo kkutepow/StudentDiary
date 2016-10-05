@@ -1,4 +1,4 @@
-import "/imports/pages/";
+import "/imports/client/";
 
 let rootGroup = FlowRouter.group({
     triggersEnter: [function (context, redirect, stop) {
@@ -56,12 +56,32 @@ rootGroup.route("/achievements", {
     }
 });
 
+rootGroup.route("/profile/group", {
+    name: "group_profile",
+    action: (params, queryParams) => {
+        console.log("params", params);
+        BlazeLayout.render("navbar", {
+            userContent: "group_profile"
+        });
+    }
+});
+
 rootGroup.route("/profile", {
     name: "profile",
     action: (params, queryParams) => {
         console.log("params", params);
         BlazeLayout.render("navbar", {
-            userContent: "profile"
+            userContent: "user_profile"
+        });
+    }
+});
+
+rootGroup.route("/profile/user", {
+    name: "user_profile",
+    action: (params, queryParams) => {
+        console.log("params", params);
+        BlazeLayout.render("navbar", {
+            userContent: "user_profile"
         });
     }
 });

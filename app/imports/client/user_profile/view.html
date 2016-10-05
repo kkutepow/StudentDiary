@@ -1,0 +1,76 @@
+<template name="user_profile">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation">
+                        <a href="/profile/user"><span class="glyphicon glyphicon-camera"></span> Личный профиль</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/profile/group"><span class="glyphicon glyphicon-blackboard"></span> Профиль группы</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/profile/group"><span class="glyphicon glyphicon-tags left"></span> Заявки группы</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-offset-1 col-md-6">
+                {{#if Template.subscriptionsReady}}
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="groupName" class="col-sm-4 control-label">Название группы</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" data-role="groupName" placeholder="Название" value="{{groupName}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-4 control-label">ID группы</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPassword3" value="{{groupId}}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Семестры:</label>
+                            <div class="col-sm-8">
+                                <div class="row text-center">
+                                    {{#each record in terms}}
+                                        <div class="col-sm-6">
+                                            <a style="border-width:0" class="btn {{#if isSelectedTerm @index}}btn-success{{else}}btn-link{{/if}}" data-role="termSelector" data-index="{{@index}}">
+                                                {{record}}
+                                            </a>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Предметы:</label>
+                            <div class="col-sm-8">
+                                {{#each record in subjects}}
+                                    <input type="text" class="form-control" value="{{record}}" data-role="subject" data-index="{{@index}}" placeholder="Название предмета">
+                                {{/each}}
+                                <a class="btn btn-link form-control" data-role="addNewSubject">Добавить</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 text-right">
+                                <div class="form-control-static small text-muted">Для того, чтобы изменения вступили в силу, нажмите "Сохранить"</div>
+                            </div>
+                            <div class="col-sm-offset-4 col-sm-8 text-right">
+                                <button class="btn btn-default" data-role="save">Сохранить</button>
+                            </div>
+                        </div>
+                    </form>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

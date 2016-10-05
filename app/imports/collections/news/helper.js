@@ -1,4 +1,4 @@
-export class NewsWrapper {
+export class NewsHelper {
     static loadMoreFor(plainObject){
         let creator = Meteor.users.findOne({_id: plainObject.creator_id});
         plainObject.creator_name = creator ? creator.name : "anonymous";

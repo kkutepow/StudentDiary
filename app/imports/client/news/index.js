@@ -1,7 +1,7 @@
 import {Template} from "meteor/templating";
 
 import {News} from "/imports/collections/news/collection";
-import {NewsWrapper} from "/imports/collections/news/wrapper";
+import {NewsHelper} from "/imports/collections/news/helper";
 
 import "./view.html";
 
@@ -12,7 +12,7 @@ Template.news.onCreated(function () {
     this.subscribe("news", "21", ()=> {
         let news = News.find({}).fetch().reverse();
         news.map((item)=> {
-            return NewsWrapper.loadMoreFor(item);
+            return NewsHelper.loadMoreFor(item);
         });
         this.news.set(news);
     });
@@ -60,7 +60,7 @@ Template.news.events({
         };
         newRecord._id = News.insert(newRecord);
         let news = blazeTemplate.news.get();
-        newRecord = NewsWrapper.loadMoreFor(newRecord);
+        newRecord = NewsHelper.loadMoreFor(newRecord);
         news.unshift(newRecord);
         blazeTemplate.news.set(news);
         $("#newRecordBody").val("");
@@ -94,7 +94,7 @@ Template.news.events({
            return item._id == recordId;
         });
         news[index].comments.push(newComment);
-        news[index] = NewsWrapper.loadMoreFor(news[index]);
+        news[index] = NewsHelper.loadMoreFor(news[index]);
         blazeTemplate.news.set(news);
         $("#newCommentBody").val("");
     },

@@ -1,3 +1,7 @@
+body {
+    transition: .2s;
+}
+
 header{
     text-align: center;
 }
@@ -218,8 +222,11 @@ a.color-main:visited {
     color: #bbb !important;
 }
 
-
-
+/* group_profile settings */
+.options-group{
+    padding: 0 25px;
+    margin: 15px 0;
+}
 
 
 
